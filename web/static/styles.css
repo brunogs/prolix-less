@@ -56,6 +56,10 @@
     word-wrap: break-word;
 }
 
+.url-text input[type=text] {
+    width: 100%;
+}
+
 .video-title {
     color: #F2F2F2;
     font-size: 24px;
@@ -91,4 +95,15 @@
     top: 49px;
     display: flex;
     gap: 30px;
+}
+
+#video-section {
+    flex: 1;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
 }
