@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Prolixless</title>
     <link href="/css/styles.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.9.11"></script>
 </head>
 <body>
 <div class="container">
@@ -12,16 +13,14 @@
         <div class="page-title">Page Title</div>
         <div class="url-container">
             <div class="url-text">
-                http://www.youtube.com.br/asdiuhuasd/cjvhaidhfga;dl_aosdifaosdivxck<
+                <input name="video-url" type="text" />
+                <button hx-post="/video" hx-include="[name='video-url']" hx-target="#video-section">
+                    Search
+                </button>
             </div>
         </div>
         <div id="video-section">
-            <div class="video-title">Video Title</div>
-            <div class="video-container">
-                <div class="player-controls">
-                    <!-- Player Controls Content -->
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="content-section">
