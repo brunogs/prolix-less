@@ -60,6 +60,17 @@
     width: 100%;
 }
 
+.video-transcript {
+    flex: 1;
+    color: #828282;
+    font-size: 20px;
+    font-family: Inter;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .video-title {
     color: #F2F2F2;
     font-size: 24px;

@@ -45,7 +45,8 @@ func (h GinHandler) VideoTranscript(c *gin.Context) {
 	if err != nil {
 		log.Println("file not found", idStr, err)
 		c.Status(http.StatusNoContent)
+	} else {
+		fmt.Println(string(file))
+		c.String(http.StatusOK, "<p>%s</p>", string(file))
 	}
-	fmt.Println(string(file))
-	c.String(http.StatusOK, "<p>%s</p>", string(file))
 }

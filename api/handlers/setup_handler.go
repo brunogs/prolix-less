@@ -14,5 +14,7 @@ func (h GinHandler) SetupEndpoints(r *gin.Engine) {
 
 	// static content
 	r.Static("/css", "web/static")
+	r.Static("/img", "web/static")
+
 	r.LoadHTMLGlob("web/templates/*")
 }
