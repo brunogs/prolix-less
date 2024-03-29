@@ -3,3 +3,14 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{.videoID}}" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
+<!--<div hx-get="/video_transcript/{{.videoTranscriptID}}"
+     hx-trigger="load delay:1s"
+     hx-swap="outerHTML"
+>
+</div>-->
+
+<button hx-get="/video_transcript/{{.videoTranscriptID}}" hx-target="#video-transcript">
+    Get Transcript
+</button>
+<div id="video-transcript">
+</div>

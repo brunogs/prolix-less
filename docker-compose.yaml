@@ -1,10 +1,22 @@
 version: "3.6"
 
 services:
-  api01:
+  prolix-less:
     build:
      context: .
      dockerfile: Dockerfile
     hostname: prolix-less
     ports:
       - "3000:3000"
+    volumes:
+      - ./resources:/resources
+
+  prolix-transcript:
+    build:
+      context: ../prolix-transcript
+      dockerfile: Dockerfile
+    hostname: prolix_transcript
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./resources:/resources

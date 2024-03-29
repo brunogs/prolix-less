@@ -10,6 +10,7 @@ func (h GinHandler) SetupEndpoints(r *gin.Engine) {
 	// endpoints
 	r.GET("/", h.Index)
 	r.POST("/video", h.Video)
+	r.GET("/video_transcript/:id", h.VideoTranscript)
 
 	// static content
 	r.Static("/css", "web/static")
