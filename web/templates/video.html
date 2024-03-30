@@ -1,15 +1,15 @@
-<div>
+<p>
     <div class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{.videoID}}" frameborder="0" allowfullscreen></iframe>
     </div>
-</div>
+</p>
 
-<div id="video-transcript" class="video-transcript">
+<p id="video-transcript">
     <div hx-get="/video_transcript/{{.videoTranscriptID}}"
          hx-trigger="every 1s"
-         hx-swap="outerHTML"
-         class="video-transcript"
-    >
-        <img src="/img/spinner.gif">
+         hx-swap="outerHTML">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
-</div>
+</p>
