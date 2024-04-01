@@ -1,0 +1,14 @@
+<p id="video-transcript">
+    {{ if .complete }}
+        <p>{{.videoTranscript}}</p>
+    {{ else }}
+        <div hx-get="/video_transcript/{{.videoTranscriptID}}"
+             hx-trigger="every 1s"
+             hx-swap="outerHTML">
+            <p>{{.videoTranscript}}</p>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    {{ end }}
+</p>

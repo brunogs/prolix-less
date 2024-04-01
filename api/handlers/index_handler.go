@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"prolixless/api/client"
@@ -41,12 +42,19 @@ func (h GinHandler) Video(c *gin.Context) {
 
 func (h GinHandler) VideoTranscript(c *gin.Context) {
 	idStr := c.Param("id")
-	file, err := os.ReadFile("/resources/" + idStr + ".txt")
+	file, err := os.ReadFile("/resources/" + idStr + "/transcript.txt")
 	if err != nil {
 		log.Println("file not found", idStr, err)
 		c.Status(http.StatusNoContent)
 	} else {
 		fmt.Println(string(file))
-		c.String(http.StatusOK, "<p>%s</p>", string(file))
+		//c.String(http.StatusOK, "<p>%s</p>", string(file))
+		parameters := make(map[string]string)
+		parameters["videoTranscriptID"] = idStr
+		parameters["videoTranscript"] = string(file)
+		if complete := strings.HasSuffix(string(file), "<COMPLETE>"); complete {
+			parameters["complete"] = "true"
+		}
+		c.HTML(http.StatusOK, "video_transcript.html", parameters)
 	}
 }
